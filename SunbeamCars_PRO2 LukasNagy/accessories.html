@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Accessories</title>
+</head>
+
+<body>
+    <h1>You chose</h1>
+    <div id="output"></div>
+    <div id="formoutput"></div>
+    <script src="js2.js"></script>
+
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunbeam Car's accessories</title>
+</head>
+
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>Accessories (incl. VAT)</legend>
+            <br>
+            <input type="checkbox" data-item="Second driver" class="slist" value="199" onchange="calculateTotal(this, this.value)">Second driver, dkr. 199<br>
+            <input type="checkbox" data-item="White bread" class="slist" value="155" onchange="calculateTotal(this, this.value)">Child seat, dkr. 155<br>
+            <input type="checkbox" data-item="Roadside Aid Kit" class="slist" value="120" onchange="calculateTotal(this, this.value)">Roadside Aid Kit, dkr. 120<br>
+            <input type="checkbox" data-item="Baby seat" class="slist" value="100" onchange="calculateTotal(this, this.value)">Baby seat, dkr. 100<br>
+            <input type="checkbox" data-item="Child seat two" class="slist" value="140" onchange="calculateTotal(this, this.value)">Child seat two, dkr. 140<br>
+            <input type="checkbox" data-item="GPS" class="slist" value="400" onchange="calculateTotal(this, this.value)">GPS, dkr. 400<br>
+            
+            <br>
+            <div id="totaloutput"></div>
+            <br>
+            <button type="submit">Book now</button>
+        </fieldset>
+
+        <div id="totaloutput"></div>
+    </form>
+<!--
+    <script>
+        const url = window.location.search;
+        const urldata = new URLSearchParams(url);
+
+        const template = `
+        <h2>${urldata.get('carChoice')}</h2>
+        <p>Pick up date: ${urldata.get('pickUpDate')}</p>
+        <p>Departure Date: ${urldata.get('departureDate')}</p>
+        <p>Days: ${urldata.get('days')}</p>
+        <p>Car rental Cost: ${urldata.get('carPrice')} DKK</p>`
+
+
+        const output = document.getElementById("output");
+        output.insertAdjacentHTML("beforeend", template);
+    </script>
+
+
+-->
+<script>const URL = window.location.search;
+    const URLDATA = new URLSearchParams(URL);
+    
+    const OUTPUT = document.getElementById("output");
+    OUTPUT.innerHTML =
+        "<br>" +
+        `<img src=./${URLDATA.get("image")} />` +
+        "<br>" + URLDATA.get("brand") +
+        "<br>" +
+        "Category: " + URLDATA.get("category") +
+        "<br>" +
+        "Persons: " + URLDATA.get("persons") +
+        "<br>" +
+        "Suitcases: " + URLDATA.get("suitcases") +
+        "<br>" 
+      + "Rental: " + URLDATA.get("carPrice")
+      ;
+      const brand = URLDATA.get("brand")
+      const category = URLDATA.get("category")
+      const persons = URLDATA.get("persons")
+      const suitcases = URLDATA.get("suitcases")
+      const carprice = URLDATA.get("carPrice")
+    sessionStorage.setItem("brand1",brand)
+    sessionStorage.setItem("category1",category)
+    sessionStorage.setItem("persons1",persons)
+    sessionStorage.setItem("suitcases1",suitcases)
+    sessionStorage.setItem("carPrice1",carprice)
+      
+    </script>
+    
+<script src="checkcalc.js"></script>
+</body>
+
+</html>

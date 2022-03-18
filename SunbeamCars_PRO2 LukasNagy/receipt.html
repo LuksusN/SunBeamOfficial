@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+</head>
+<body>
+    <h1>Receipt for your booking:</h1>
+    <div id="output"><h3>Accessories:</h3></div>
+
+    <script>
+        const output=document.getElementById("output");
+
+        // Get shopping list from sesstionstorage
+        const accessories = JSON.parse(sessionStorage.getItem("goods"));
+
+        // Show every item on shopping list to user
+        for (const item of accessories) {
+            output.insertAdjacentHTML("beforeend", `${item}<br>`);
+        }
+
+        // Get and show total value to user
+        output.insertAdjacentHTML("beforeend", `<br>Total ${sessionStorage.getItem("total")}`);
+
+    </script>
+
+<!--Customer info-->
+
+<main id="main-content" class="row container m-auto">
+    
+    <form id = "form" class="info col container alert alert-info mr-2 mt-3">
+        <h2>Fill in your data</h2>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <label for="firstName">First name</label>
+                    <input required type="text" class="form-control" id="firstName" />
+
+                    <label for="Street name">Street name</label>
+                    <input
+                        required
+                        type="text"
+                        class="form-control"
+                        id="streetName"
+                    />
+
+                    <label for="postCode">Postal code</label>
+                    <input required type="text" class="form-control" id="postCode" />
+
+                    <div class="form-group form-check mt-2">
+                        <input
+                            required
+                            type="checkbox"
+                            class="form-check-input"
+                            id="consent"
+                        />
+                        <label class="form-check-label" for="consent"
+                            >I am 18 years old</label
+                        >
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="lastName">Last name</label>
+                    <input required type="text" class="form-control" id="lastName" />
+
+                    <label for="number">Number / floor</label>
+                    <input required type="text" class="form-control" id="number" />
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-success btn-block btn-lg">Book Now</button>
+    </form>
+    <!--
+    <section class="summary container col alert alert-warning ml-2 mt-3">
+        <h1>Rental information</h1>
+        <section class="alert alert-info">
+            <span>All inclusive</span>
+            <p id="total" class="mb-0">Total 1400DKK</p>
+            <small class="d-block">incl. VAT</small>
+        </section>
+
+        <section class="car">
+            <h1 id="car-name" class="h4"></h1>
+            <p id="pick-up"></p>
+            <p id="hand-in"></p>
+            <p id="days"></p>
+        </section>
+
+        <section class="accessories">
+            <h1 class="h4">Accessories</h1>
+            <ul>
+                <li>Second driver</li>
+                <li>Child seat</li>
+                <li>Roadside aid</li>
+            </ul>
+        </section>
+
+        <section class="accessories-total">
+            <h1 id="acc-total" class="h5 mb-0"></h1>
+            <small class="d-block">incl. VAT</small>
+        </section>
+    </section>
+-->
+</main>
+<script src="customerinfo.js"></script>
+</body>
+
+</html>
